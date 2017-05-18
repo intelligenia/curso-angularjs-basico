@@ -1,1 +1,23 @@
-<h1> hola </h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Curso AngularJS Básico</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Dependencias JS para el framework AngularJS -->
+    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="bower_components/angular-i18n/angular-locale_es-es.js"></script>
+
+    <!-- Ficheros de nuestra aplicación -->
+    <script type="text/javascript" src="kanban.module.js"></script>
+
+</head>
+
+<body ng-app="cursoangular.kanban">
+
+    <h1>Hola, mundo {{myvar}}</h1>
+    <input type="text" ng-model="myvar"/>
+
+</body>
+</html>
