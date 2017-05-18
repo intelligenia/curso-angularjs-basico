@@ -11,13 +11,14 @@
 
     <!-- Ficheros de nuestra aplicación -->
     <script type="text/javascript" src="kanban.module.js"></script>
+    <script type="text/javascript" src="kanban.controller.js"></script>
 
 </head>
 
-<body ng-app="cursoangular.kanban">
+<body ng-app="cursoangular.kanban" ng-controller="KanbanMainController as vm">
 
-    <h1>Hola, mundo {{myvar}}</h1>
-    <input type="text" ng-model="myvar"/>
-
+    <h1>Hola, mundo {{vm.mycolor}}</h1>
+    <input type="text" ng-model="vm.mycolor"/>
+    <button ng-click="vm.changeInfo()">Cambiar valor de variable</button>
 </body>
 </html>
