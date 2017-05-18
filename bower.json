@@ -1,0 +1,23 @@
+{
+  "name": "angular-basico",
+  "version": "1.0.0",
+  "authors": [
+    "Iván García García <ivan@intelligenia.com>"
+  ],
+  "description": "Aplicación ejemplo curso angularJS",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.6.4",
+    "angular-i18n": "~1.6.4",
+    "angular-route": "~1.6.4",
+    "bootstrap": "~3.3.7",
+    "fontawesome": "~4.7.0"
+  }
+}

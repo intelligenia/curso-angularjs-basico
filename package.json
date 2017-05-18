@@ -1,0 +1,21 @@
+{
+  "name": "angular-basico",
+  "version": "1.0.0",
+  "description": "Aplicación ejemplo para el curso",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@git.intelligenia.com:21617/formacion/angular-basico.git"
+  },
+  "author": "intelligenia",
+  "license": "ISC",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "gulp-webserver": "^0.9.1",
+    "gulp": "^3.9.1"
+  }
+}
