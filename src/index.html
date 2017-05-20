@@ -3,22 +3,35 @@
 <head>
     <meta charset="utf-8">
     <title>Curso AngularJS Básico</title>
-    <link rel="stylesheet" href="style.css">
 
     <!-- Dependencias JS para el framework AngularJS -->
     <script type="text/javascript" src="bower_components/angular/angular.js"></script>
     <script type="text/javascript" src="bower_components/angular-i18n/angular-locale_es-es.js"></script>
+    <script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
+
+    <!-- Dependencias Bootstrap -->
+    <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
 
     <!-- Ficheros de nuestra aplicación -->
     <script type="text/javascript" src="kanban.module.js"></script>
     <script type="text/javascript" src="kanban.controller.js"></script>
+    <script type="text/javascript" src="kanban.router.js"></script>
+
+    <!-- Controladores de la aplicacion -->
+    <script type="text/javascript" src="components/boards/list.controller.js"></script>
+
+
+    <!-- CSS de nuestra aplicación -->
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body ng-app="cursoangular.kanban" ng-controller="KanbanMainController as vm">
 
-    <h1>Hola, mundo {{vm.mycolor}}</h1>
-    <input type="text" ng-model="vm.mycolor"/>
-    <button ng-click="vm.changeInfo()">Cambiar valor de variable</button>
+    <header>
+        Ejemplo Kanban Board
+    </header>
+    <div class="main-container" ng-view></div>
 </body>
 </html>

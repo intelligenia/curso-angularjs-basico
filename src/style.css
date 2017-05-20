@@ -1,0 +1,123 @@
+body {
+    -webkit-user-select: none; /* Chrome/Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
+    /* Rules below not implemented in browsers yet */
+    -o-user-select: none;
+    user-select: none;
+
+    background-color: rgb(0, 121, 191);
+}
+
+header{
+    background: rgba(0,0,0,.15);
+    overflow: hidden;
+    padding: 11px;
+    z-index: 10;
+    box-shadow: 0 1px 1px rgba(0,0,0,.1);
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.board-name{
+    color:white;
+    font-size:15px;
+}
+
+.main-container{
+    padding: 0 10px;
+}
+
+
+/* Estilos del kanban board */
+
+/* Tablero */
+.kanban-board{
+    overflow-x: scroll;
+    white-space: nowrap;
+    padding-bottom: 300px;
+}
+
+.kanban-container{
+    padding:0;
+}
+
+/* Columnas */
+.kanban-col {
+    width: 300px;
+    margin-right: 20px;
+    display:inline-block;
+    vertical-align: top;
+}
+
+.kanban-col .panel-heading{
+    color: #333;
+    background-color: #E2E4E6;
+    border-color: #E2E4E6;
+    font-weight: bold;
+    cursor: context-menu;
+}
+
+.panel-heading i {
+    cursor: pointer;
+}
+
+
+/* Entradas */
+.kanban-entry {
+    position: relative;
+    margin: 10px 8px;
+    clear: both;
+    border-radius: 4px;
+    box-shadow: 1px 1px 1px 0px rgba(50, 50, 50, 0.2);
+}
+
+.kanban-label {
+    position: relative;
+    background: white;
+    padding: 0.75em;
+    border-radius: 3px;
+    white-space: normal;
+}
+
+.kanban-label p {
+    color: #737881;
+    font-family: "Noto Sans",sans-serif;
+    font-size: 12px;
+    margin: 0;
+    line-height: 1.428571429;
+}
+
+
+/* Modificación de algunos estilos bootstrap para asemejarlo a trello */
+.panel-body {
+    padding:0;
+    overflow-y: auto;
+    white-space: wrap;
+    background: #E2E4E6;
+}
+
+.panel-footer{
+    background: #E2E4E6;
+}
+
+.panel-footer a{
+    color: #777;
+}
+
+.grab {
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+}
+
+.grabbing {
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
+}
+
+
+
+
+
+

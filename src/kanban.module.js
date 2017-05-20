@@ -2,6 +2,6 @@
     'use strict';
 
     angular
-        .module('cursoangular.kanban', [ ])
+        .module('cursoangular.kanban', [ 'ngRoute' ])
 
 })();
