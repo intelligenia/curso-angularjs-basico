@@ -2,6 +2,6 @@
     'use strict';
 
     angular
-        .module('cursoangular.kanban', [ 'ngRoute' ])
+        .module('cursoangular.kanban', [ 'ngRoute', 'ContentEditable' ])
 
 })();

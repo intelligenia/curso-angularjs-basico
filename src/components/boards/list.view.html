@@ -4,19 +4,38 @@
         <div ng-repeat="col in vm.board.cols" class="panel panel-primary kanban-col">
             <div class="panel-heading">
                 {{col.name}}
-                <i class="fa fa-2x fa-plus-circle pull-right"></i>
             </div>
             <div class="panel-body">
 
-                <article ng-repeat="entry in col.entries" class="kanban-entry grab" draggable="true">
+                <!-- Listado de tareas -->
+                <article ng-repeat="task in col.tasks" class="kanban-task grab" draggable="true">
                     <div class="kanban-label">
-                        <p> {{entry}}</p>
+                        <p> {{task}}</p>
+                    </div>
+                </article>
+
+                <!-- Tarea nueva -->
+                <article ng-show="col.newTask" class="kanban-task grab">
+                    <div class="kanban-label">
+                        <p contenteditable="true" ng-model="col.task"></p>
                     </div>
                 </article>
 
             </div>
             <div class="panel-footer">
-                <a href="#">Añadir tarjeta...</a>
+                <a ng-hide="col.newTask" href="javascript:void(null)" ng-click="col.newTask = true">Añadir tarjeta...</a>
+                <button ng-show="col.newTask" class="btn btn-success" ng-click="vm.addTask(col)">Guardar</button>
+                <i ng-show="col.newTask" class="fa fa-times fa-2x" ng-click="col.newTask = false"></i>
+            </div>
+        </div>
+
+        <!--Añadir columna -->
+        <div class="panel panel-primary kanban-col" ng-class="vm.newcol ? 'kanban-col-add-enabled' : 'kanban-col-add-disabled'">
+            <div class="panel-body">
+                <a ng-hide="vm.newcol" href="javascript:void(null)" ng-click="vm.newcol = true">Añadir una lista...</a>
+                <input ng-show="vm.newcol" type="text" class="form-control" ng-model="vm.columnname">
+                <button ng-show="vm.newcol" class="btn btn-success" ng-click="vm.addColumn()">Guardar</button>
+                <i ng-show="vm.newcol" class="fa fa-times fa-2x" ng-click="vm.newcol = false"></i>
             </div>
         </div>
     </div>
