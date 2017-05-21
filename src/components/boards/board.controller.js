@@ -3,9 +3,9 @@
 
     angular
         .module('cursoangular.kanban')
-        .controller('BoardListController', BoardListController);
+        .controller('BoardController', BoardController);
 
-    function BoardListController() {
+    function BoardController() {
         var vm = this;
 
         // variables accesibles desde la vista
