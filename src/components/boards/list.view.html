@@ -1,1 +1,7 @@
 <h1 class="board-name">Listado de tableros</h1>
+<div class="boards container-fluid">
+    <a class="board" ng-href="#!/boards/{{board.id}}" ng-repeat="board in vm.boards">
+        {{board.name}}
+    </a>
+
+</div>

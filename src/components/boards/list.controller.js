@@ -9,8 +9,12 @@
         var vm = this;
 
         // variables accesibles desde la vista
-        vm.boards = [];
-
+        vm.boards = [
+            {
+                id: 1,
+                name: 'Tablero de prueba'
+            }
+        ];
 
 
     }
