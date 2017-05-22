@@ -5,7 +5,7 @@
         .module('cursoangular.kanban')
         .controller('BoardController', BoardController);
 
-    function BoardController ( board, BoardService ) {
+    function BoardController ( board, BoardService, ErrorAlertService ) {
         var vm = this;
 
         // variables accesibles desde la vista
@@ -30,6 +30,10 @@
                     // Borramos los datos del nuevo flow-step una vez añadido
                     vm.newFlowStepName = "";
                     vm.addingFlowStep = false;
+                })
+
+                .catch( function ( res ) {
+                    ErrorAlertService.apiError(res);
                 });
         }
 
@@ -45,8 +49,11 @@
                     //Borramos los datos de la tarea una vez añadida
                     flowStep.newTaskName = "";
                     flowStep.isAddingTask = false;
-                });
+                })
 
+                .catch( function ( res ) {
+                    ErrorAlertService.apiError(res);
+                });
         }
 
         /**
@@ -58,10 +65,10 @@
             BoardService.flow_steps.tasks.remove(task.id)
                 .then( function ( ) {
                     flowStep.tasks.splice(flowStep.tasks.indexOf(task), 1);
+                })
+                .catch( function ( res ) {
+                    ErrorAlertService.apiError(res);
                 });
-
         }
-
-
     }
 })();

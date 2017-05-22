@@ -5,7 +5,7 @@
         .module('cursoangular.kanban')
         .controller('BoardListController', BoardListController);
 
-    function BoardListController( boards, BoardService ) {
+    function BoardListController( boards, BoardService, ErrorAlertService ) {
         var vm = this;
 
         // variables accesibles desde la vista
@@ -34,7 +34,11 @@
                     vm.boards.push(board);
                     vm.isAddingBoard = false;
                     vm.newBoardName = "";
-                } );
+                })
+
+                .catch( function ( res ) {
+                    ErrorAlertService.apiError(res);
+                });
 
         }
     }
