@@ -5,40 +5,46 @@
         .module('cursoangular.kanban')
         .controller('BoardController', BoardController);
 
-    function BoardController ( board ) {
+    function BoardController ( board, BoardService ) {
         var vm = this;
 
         // variables accesibles desde la vista
         vm.board = board;
+        vm.new_flow_step = {};
 
         // Métodos
-        vm.addColumn = addColumn;
+        vm.addFlowStep = addFlowStep;
         vm.addTask = addTask;
 
 
         // Implementación
         /**
-         * Añade una nueva columna al tablera
-         * @param columnName El nombre de la columna a añadir
+         * Añade una nueva columna al tablero
          */
-        function addColumn() {
-            vm.board.cols.push({
-                name: vm.columnname,
-                tasks: []
+        function addFlowStep() {
+            BoardService.flow_steps.add(vm.board.id, vm.new_flow_step).then(function(response){
+                vm.board.flow_steps.push(response.data);
+
+                // Borramos los datos del nuevo flow-step una vez añadido
+                vm.new_flow_step = {};
+                vm.addingFlowStep = false;
             });
-            vm.newcol = false;
-            vm.columnname = "";
+
         }
 
         /**
          * Añade una nueva tarea a una columna
-         * @param col La columna donde añadir la nueva entrada
-         * @param task El contenido de la tarea
+         * @param flow_step La columna donde añadir la nueva entrada
          */
-        function addTask(col){
-            col.tasks.push(col.task);
-            col.newTask = false;
-            col.task = "";
+        function addTask(flow_step){
+            BoardService.flow_steps.tasks.add(flow_step.id, flow_step.new_task).then(function(response){
+                flow_step.tasks.push(response.data);
+
+                //Borramos los datos de la tarea una vez añadida
+                flow_step.new_task = {};
+                flow_step.isAddingTask = false;
+            });
+
         }
 
 
