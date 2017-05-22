@@ -5,13 +5,11 @@
         .module('cursoangular.kanban')
         .controller('BoardController', BoardController);
 
-    function BoardController() {
+    function BoardController ( board ) {
         var vm = this;
 
         // variables accesibles desde la vista
-        vm.board = {};
-        vm.board.name = "Nombre del tablero";
-        vm.board.cols = [];
+        vm.board = board;
 
         // Métodos
         vm.addColumn = addColumn;

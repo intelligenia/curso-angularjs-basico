@@ -5,17 +5,10 @@
         .module('cursoangular.kanban')
         .controller('BoardListController', BoardListController);
 
-    function BoardListController() {
+    function BoardListController( boards ) {
         var vm = this;
 
         // variables accesibles desde la vista
-        vm.boards = [
-            {
-                id: 1,
-                name: 'Tablero de prueba'
-            }
-        ];
-
-
+        vm.boards = boards;
     }
 })();
