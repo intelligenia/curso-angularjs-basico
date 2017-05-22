@@ -10,7 +10,7 @@
 
         // variables accesibles desde la vista
         vm.board = board;
-        vm.new_flow_step = {};
+        vm.newFlowStepName = "";
 
         // Métodos
         vm.addFlowStep = addFlowStep;
@@ -21,15 +21,15 @@
         /**
          * Añade una nueva columna al tablero
          */
-        function addFlowStep() {
-            BoardService.flow_steps.add(vm.board.id, vm.new_flow_step).then(function(response){
-                vm.board.flow_steps.push(response.data);
+        function addFlowStep(flowStepName) {
+            BoardService.flow_steps.add(vm.board.id, flowStepName, "una descripción")
+                .then( function ( flowStep ) {
+                    vm.board.flow_steps.push(flowStep);
 
-                // Borramos los datos del nuevo flow-step una vez añadido
-                vm.new_flow_step = {};
-                vm.addingFlowStep = false;
-            });
-
+                    // Borramos los datos del nuevo flow-step una vez añadido
+                    vm.newFlowStepName = "";
+                    vm.addingFlowStep = false;
+                });
         }
 
         /**
@@ -37,13 +37,26 @@
          * @param flow_step La columna donde añadir la nueva entrada
          */
         function addTask(flow_step){
-            BoardService.flow_steps.tasks.add(flow_step.id, flow_step.new_task).then(function(response){
-                flow_step.tasks.push(response.data);
+            BoardService.flow_steps.tasks.add(flow_step.id, flow_step.newTaskName, "una descripción")
+                .then( function ( task ) {
+                    flow_step.tasks.push(task);
 
-                //Borramos los datos de la tarea una vez añadida
-                flow_step.new_task = {};
-                flow_step.isAddingTask = false;
-            });
+                    //Borramos los datos de la tarea una vez añadida
+                    flow_step.newTaskName = "";
+                    flow_step.isAddingTask = false;
+                });
+
+        }
+
+        /**
+         * Elimina una tarea
+         * @param task  tarea
+         */
+        function removeTask(task){
+            BoardService.flow_steps.tasks.remove(task.id)
+                .then( function ( ) {
+                    flow_step.tasks.splice(flow_step.tasks.indexOf(task), 1);
+                });
 
         }
 

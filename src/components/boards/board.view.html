@@ -10,14 +10,15 @@
                 <!-- Listado de tareas -->
                 <article ng-repeat="task in flow_step.tasks" class="kanban-task grab" draggable="true">
                     <div class="kanban-label">
+                        <i class="remove fa fa-times" ng-click="vm.removeTask(task)"></i>
                         <p> {{task.name}}</p>
                     </div>
                 </article>
 
                 <!-- Tarea nueva -->
-                <article ng-show="flow_step.newTask" class="kanban-task grab">
+                <article ng-show="flow_step.isAddingTask" class="kanban-task grab">
                     <div class="kanban-label">
-                        <p contenteditable="true" ng-model="vm.flow_step.new_task.name"></p>
+                        <p contenteditable="true" ng-model="flow_step.newTaskName"></p>
                     </div>
                 </article>
 
@@ -30,11 +31,11 @@
         </div>
 
         <!--Añadir columna -->
-        <div class="panel panel-primary kanban-col" ng-class="vm.newcol ? 'kanban-col-add-enabled' : 'kanban-col-add-disabled'">
+        <div class="panel panel-primary kanban-col" ng-class="vm.isAddingFlowStep ? 'kanban-col-add-enabled' : 'kanban-col-add-disabled'">
             <div class="panel-body">
                 <a ng-hide="vm.isAddingFlowStep" href="javascript:void(null)" ng-click="vm.isAddingFlowStep = true">Añadir una lista...</a>
-                <input ng-show="vm.isAddingFlowStep" type="text" class="form-control" ng-model="vm.new_flow_step">
-                <button ng-show="vm.isAddingFlowStep" class="btn btn-success" ng-click="vm.addFlowStep()">Guardar</button>
+                <input ng-show="vm.isAddingFlowStep" type="text" class="form-control" ng-model="vm.newFlowStepName">
+                <button ng-show="vm.isAddingFlowStep" class="btn btn-success" ng-click="vm.addFlowStep(vm.newFlowStepName)">Guardar</button>
                 <i ng-show="vm.isAddingFlowStep" class="fa fa-times fa-2x" ng-click="vm.isAddingFlowStep = false"></i>
             </div>
         </div>

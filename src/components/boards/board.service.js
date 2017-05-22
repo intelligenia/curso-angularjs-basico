@@ -109,14 +109,15 @@
 		/**
 		 * Añade una nueva columna (flow-step) a un tablero (board)
 		 */
-		function addFS(boardId, flowstep){
-			var fs = angular.copy(flowstep);
-			fs.project = boardId;
-
+		function addFS(boardId, flowStepName, flowStepDescription){
 			return $http({
 				url: '/api/flow_step/',
 				method: 'POST',
-				data: fs
+				data: {
+					name: flowStepName,
+					project: boardId,
+					description: flowStepDescription
+				}
 			})
 				.then ( function ( res ) {
 					return res.data;
@@ -145,17 +146,18 @@
 		/**
 		 * Añade una tarea a una columna (flow-step) de un tablero
 		 * @param flowstepId El identificador de la columna (flow-step) donde irá la tarea
-		 * @param task La tarea a añadir
+		 * @param taskName La tarea a añadir
 		 * @returns Una promesa con la respuesta HTTP. Si el estatus es 200 los datos de la tarea creada
          */
-		function addTask(flowstepId, task){
-			var t = angular.copy(task);
-			t.flow_step = flowstepId;
-
+		function addTask(flowstepId, taskName, taskDescription){
 			return $http({
 				url: '/api/task/',
 				method: 'POST',
-				data: t
+				data: {
+					name: taskName,
+					description: taskDescription,
+					flow_step: flowstepId
+				}
 			})
 				.then ( function ( res ) {
 					return res.data;

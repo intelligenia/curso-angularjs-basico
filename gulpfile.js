@@ -12,7 +12,7 @@ gulp.task('webserver', function() {
       proxies: [
         {
           source: '/api',
-          target: 'http://localhost:8000/api'
+          target: 'http://angular-basico-01.cursos.intelligenia.com/api'
 		}
       ]
     }));
