@@ -19,7 +19,7 @@
 				tasks: {
 					list: listTasks,
 					get: getTask,
-					add: addTask,
+					add: addTask
 				}
 			}
 		};
@@ -115,7 +115,7 @@
 		//////////////////////
 		// TAREAS
 
-		function listTaks(){
+		function listTasks(){
 
 		}
 
