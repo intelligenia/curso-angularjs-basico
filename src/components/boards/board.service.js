@@ -18,7 +18,8 @@
 				add: addFS,
 				tasks: {
 					get: getTask,
-					add: addTask
+					add: addTask,
+					remove: removeTask
 				}
 			}
 		};
@@ -156,6 +157,21 @@
 				url: '/api/task/',
 				method: 'POST',
 				data: t
+			})
+				.then ( function ( res ) {
+					return res.data;
+				} );
+		}
+
+		/**
+		 * Eliminar la tarea indicada
+		 * @param taskId El identificador de la tarea a eliminar
+		 * @returns Una promesa con la respuesta HTTP.
+         */
+		function removeTask(taskId){
+			return $http({
+				url: '/api/task/' + taskId,
+				method: 'DELETE',
 			})
 				.then ( function ( res ) {
 					return res.data;
