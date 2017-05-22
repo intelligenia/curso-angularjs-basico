@@ -87,7 +87,7 @@
          */
 		function listFS(boardId){
 			return $http({
-				url: '/api/flow-step/',
+				url: '/api/flow_step/',
 				method: 'GET'
 			})
 				.then ( function ( res ) {
@@ -102,29 +102,73 @@
 		 * @returns Una promesa con la respuesta HTTP. Si el estatus es 200 los datos de la columna
          */
 		function getFS(flowstepId){
-
+			return $http({
+				url: '/api/flow_step/' +  flowstepId,
+				method: 'GET'
+			})
+				.then ( function ( res ) {
+					console.log(res.data);
+					return res.data;
+				} );
 		}
 
 		/**
 		 * Añade una nueva columna (flow-step) a un tablero (board)
 		 */
 		function addFS(boardId, flowstep){
+			var fs = angulary.copy(flowstep);
+			fs.project = boardId;
 
+			return $http({
+				url: '/api/flow_step/',
+				method: 'POST',
+				data: fs
+			})
+				.then ( function ( res ) {
+					console.log(res.data);
+					return res.data;
+				} );
 		}
 
 		//////////////////////
 		// TAREAS
 
-		function listTasks(){
 
+		/**
+		 * Datos de una tarea
+		 * @param taskId El identificador de la tarea
+		 * @returns Una promesa con la respuesta HTTP. Si el estatus es 200 los datos de la tarea
+         */
+		function getTask(taskId){
+			return $http({
+				url: '/api/task/' +  taskId,
+				method: 'GET'
+			})
+				.then ( function ( res ) {
+					console.log(res.data);
+					return res.data;
+				} );
 		}
 
-		function getTask(){
+		/**
+		 * Añade una tarea a una columna (flow-step) de un tablero
+		 * @param flowstepId El identificador de la columna (flow-step) donde irá la tarea
+		 * @param task La tarea a añadir
+		 * @returns Una promesa con la respuesta HTTP. Si el estatus es 200 los datos de la tarea creada
+         */
+		function addTask(flowstepId, task){
+			var t = angulary.copy(task);
+			t.flow_step = flowstepId;
 
-		}
-
-		function addTask(){
-
+			return $http({
+				url: '/api/task/',
+				method: 'POST',
+				data: t
+			})
+				.then ( function ( res ) {
+					console.log(res.data);
+					return res.data;
+				} );
 		}
 
 		return api;
