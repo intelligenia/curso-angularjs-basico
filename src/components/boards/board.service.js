@@ -85,7 +85,7 @@
 		 * @param boardId El identificador del tablero
 		 * @returns Una promesa con la respuesta HTTP. Si el estatus es 200 el listado de columnas
          */
-		function listFS(projectId){
+		function listFS(boardId){
 			return $http({
 				url: '/api/flow-step/',
 				method: 'GET'
