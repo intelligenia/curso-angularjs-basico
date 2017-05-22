@@ -4,15 +4,15 @@
         {{board.name}}
     </a>
     <a class="board newboard">
-        <span ng-click="vm.is_adding_board=true" ng-show="!vm.is_adding_board">
+        <span ng-click="vm.isAddingBoard=true" ng-show="!vm.isAddingBoard">
             <i class="fa fa-plus"></i>
             Nuevo tablero
         </span>
 
-        <span ng-show="vm.is_adding_board">
-            <i class="fa fa-times" ng-click="vm.is_adding_board=false"></i>
-            <input type="text" class="form-control" ng-model="vm.new_board_name">
-            <button class="btn btn-success" ng-click="vm.addBoard(vm.new_board_name)">Guardar</button>
+        <span ng-show="vm.isAddingBoard">
+            <i class="fa fa-times" ng-click="vm.isAddingBoard=false"></i>
+            <input type="text" class="form-control" ng-model="vm.newBoardName">
+            <button class="btn btn-success" ng-click="vm.addBoard(vm.newBoardName)">Guardar</button>
         </span>
     </a>
 

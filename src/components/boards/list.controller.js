@@ -10,8 +10,8 @@
 
         // variables accesibles desde la vista
         vm.boards = boards;              // lista de tableros
-        vm.is_adding_board = false;      // indica si se está añadiendo un nuevo tablero
-        vm.new_board_name = "";          // nombre del nuevo tablero
+        vm.isAddingBoard = false;      // indica si se está añadiendo un nuevo tablero
+        vm.newBoardName = "";          // nombre del nuevo tablero
 
         // métodos accesibles desde la vista
         vm.addBoard = addBoard;      // invocado al hacer click en el botón de añadir tablero
@@ -32,8 +32,8 @@
             })
                 .then( function ( board ) {
                     vm.boards.push(board);
-                    vm.is_adding_board = false;
-                    vm.new_board_name = "";
+                    vm.isAddingBoard = false;
+                    vm.newBoardName = "";
                 } );
 
         }
