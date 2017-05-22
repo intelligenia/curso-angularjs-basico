@@ -7,7 +7,7 @@
 
 
 	function config ( $locationProvider, $routeProvider ) {
-		$locationProvider.hashPrefix('!');
+		$locationProvider.html5Mode(true);
 
 		$routeProvider
 			.when('/boards', {
