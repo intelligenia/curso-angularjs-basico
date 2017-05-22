@@ -17,7 +17,6 @@
 				get: getFS,
 				add: addFS,
 				tasks: {
-					list: listTasks,
 					get: getTask,
 					add: addTask
 				}
@@ -39,7 +38,6 @@
 				method: 'GET'
 			})
 				.then ( function ( res ) {
-					console.log(res.data);
 					return res.data;
 				} );
 		}
@@ -55,7 +53,6 @@
 				method: 'GET'
 			})
 				.then ( function ( res ) {
-					console.log(res.data);
 					return res.data;
 				} );
 		}
@@ -67,12 +64,11 @@
 		 */
 		function add ( board ) {
 			return $http({
-				url: '/api/project/' + boardId + '/',
+				url: '/api/project/',
 				method: 'POST',
 				data: board
 			})
 				.then ( function ( res ) {
-					console.log(res.data);
 					return res.data;
 				} );
 		}
@@ -91,7 +87,6 @@
 				method: 'GET'
 			})
 				.then ( function ( res ) {
-					console.log(res.data);
 					return res.data;
 				} );
 		}
@@ -107,7 +102,6 @@
 				method: 'GET'
 			})
 				.then ( function ( res ) {
-					console.log(res.data);
 					return res.data;
 				} );
 		}
@@ -116,7 +110,7 @@
 		 * Añade una nueva columna (flow-step) a un tablero (board)
 		 */
 		function addFS(boardId, flowstep){
-			var fs = angulary.copy(flowstep);
+			var fs = angular.copy(flowstep);
 			fs.project = boardId;
 
 			return $http({
@@ -125,7 +119,6 @@
 				data: fs
 			})
 				.then ( function ( res ) {
-					console.log(res.data);
 					return res.data;
 				} );
 		}
@@ -145,7 +138,6 @@
 				method: 'GET'
 			})
 				.then ( function ( res ) {
-					console.log(res.data);
 					return res.data;
 				} );
 		}
@@ -157,7 +149,7 @@
 		 * @returns Una promesa con la respuesta HTTP. Si el estatus es 200 los datos de la tarea creada
          */
 		function addTask(flowstepId, task){
-			var t = angulary.copy(task);
+			var t = angular.copy(task);
 			t.flow_step = flowstepId;
 
 			return $http({
@@ -166,7 +158,6 @@
 				data: t
 			})
 				.then ( function ( res ) {
-					console.log(res.data);
 					return res.data;
 				} );
 		}

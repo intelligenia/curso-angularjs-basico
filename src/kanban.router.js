@@ -26,11 +26,6 @@
 				}
 			})
 
-			.when('/intro', {
-				templateUrl: 'index.html',
-				controller: 'KanbanMainController as vm'
-			})
-
 			.otherwise('/boards');
 	}
 

@@ -52,6 +52,7 @@ header{
 .newboard{
     background: rgba(0,0,0,.12);
     color: rgba(255,255,255,.4);
+    cursor: pointer;
 }
 
 .newboard:hover{
