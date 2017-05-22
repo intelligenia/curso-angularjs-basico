@@ -200,3 +200,8 @@ header{
 [contenteditable]:focus {
     outline: 0 solid transparent;
 }
+
+.task-modal .date {
+    float: right;
+    color: #888;
+}

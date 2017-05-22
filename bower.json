@@ -19,6 +19,11 @@
     "angular-route": "~1.6.4",
     "bootstrap": "~3.3.7",
     "fontawesome": "~4.7.0",
-    "ng-contenteditable": "*"
+    "ng-contenteditable": "*",
+    "angular-pnotify": "^0.1.2",
+    "angular-bootstrap": "^2.5.0"
+  },
+  "resolutions": {
+    "angular": "1.6.4"
   }
 }

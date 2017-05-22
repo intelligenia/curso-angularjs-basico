@@ -5,7 +5,7 @@
         .module('cursoangular.kanban')
         .controller('BoardController', BoardController);
 
-    function BoardController ( board, BoardService, ErrorAlertService ) {
+    function BoardController ($uibModal, board, BoardService, ErrorAlertService ) {
         var vm = this;
 
         // variables accesibles desde la vista
@@ -16,7 +16,7 @@
         vm.addFlowStep = addFlowStep;    // añadir lista
         vm.addTask = addTask;            // añadir tarea a lista
         vm.removeTask = removeTask;      // eliminar tarea
-
+        vm.openTask = openTask;          // mostrar modal con tarea
 
         // Implementación
         /**
@@ -69,6 +69,22 @@
                 .catch( function ( res ) {
                     ErrorAlertService.apiError(res);
                 });
+        }
+
+
+        function openTask(task) {
+            var modal = $uibModal.open({
+                controller: "TaskController as tVm",
+                templateUrl: "components/boards/dialogs/task.view.html",
+                resolve:{
+                    task: function ( ) { return task; }
+                }
+            });
+
+            modal.result.catch(function(res){
+                console.log(res)
+            })
+
         }
     }
 })();

@@ -1,0 +1,16 @@
+<div class="task-modal">
+    <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">{{ tVm.task.name }}</h3>
+        <small class="date">{{ tVm.task.creation_datetime|date:'fullDate'}}</small>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <a>Editar la descripción...</a>
+        <hr/>
+
+        <textarea class="form-control" placeholder="escriba un comentario..."></textarea>
+        <button class="btn btn-success">Enviar</button>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-warning" type="button" ng-click="tVm.close()">Cerrar</button>
+    </div>
+</div>

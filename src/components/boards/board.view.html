@@ -9,7 +9,7 @@
 
                 <!-- Listado de tareas -->
                 <article ng-repeat="task in flowStep.tasks" class="kanban-task grab" draggable="true">
-                    <div class="kanban-label">
+                    <div class="kanban-label" ng-click="vm.openTask(task)">
                         <i class="remove fa fa-times" ng-click="vm.removeTask(flowStep, task)"></i>
                         <p> {{task.name}}</p>
                     </div>
