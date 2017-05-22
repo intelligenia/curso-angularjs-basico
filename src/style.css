@@ -143,7 +143,7 @@ header{
     margin: 10px 8px;
     clear: both;
     border-radius: 4px;
-    box-shadow: 1px 1px 1px 0px rgba(50, 50, 50, 0.2);
+    box-shadow: 1px 1px 1px 0 rgba(50, 50, 50, 0.2);
 }
 
 .kanban-task i.remove {
@@ -176,7 +176,6 @@ header{
 .panel-body {
     padding:0;
     overflow-y: auto;
-    white-space: wrap;
     background: #E2E4E6;
 }
 
@@ -199,5 +198,5 @@ header{
 }
 
 [contenteditable]:focus {
-    outline: 0px solid transparent;
+    outline: 0 solid transparent;
 }

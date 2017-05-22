@@ -13,11 +13,8 @@
 			get: get,
 			add: add,
 			flow_steps: {
-				list: listFS,
-				get: getFS,
 				add: addFS,
 				tasks: {
-					get: getTask,
 					add: addTask,
 					remove: removeTask
 				}
@@ -78,36 +75,6 @@
 		// FLOW STEPS
 
 		/**
-		 * Listado de columnas (flow-step) de un determinado proyecto
-		 * @param boardId El identificador del tablero
-		 * @returns Una promesa con la respuesta HTTP. Si el estatus es 200 el listado de columnas
-         */
-		function listFS(boardId){
-			return $http({
-				url: '/api/flow_step/',
-				method: 'GET'
-			})
-				.then ( function ( res ) {
-					return res.data;
-				} );
-		}
-
-		/**
-		 * Obtiene los datos de una columna (flow-step)
-		 * @param flowstepId El identificador de la columna (flow-step)
-		 * @returns Una promesa con la respuesta HTTP. Si el estatus es 200 los datos de la columna
-         */
-		function getFS(flowstepId){
-			return $http({
-				url: '/api/flow_step/' +  flowstepId,
-				method: 'GET'
-			})
-				.then ( function ( res ) {
-					return res.data;
-				} );
-		}
-
-		/**
 		 * Añade una nueva columna (flow-step) a un tablero (board)
 		 */
 		function addFS(boardId, flowStepName, flowStepDescription){
@@ -128,26 +95,11 @@
 		//////////////////////
 		// TAREAS
 
-
-		/**
-		 * Datos de una tarea
-		 * @param taskId El identificador de la tarea
-		 * @returns Una promesa con la respuesta HTTP. Si el estatus es 200 los datos de la tarea
-         */
-		function getTask(taskId){
-			return $http({
-				url: '/api/task/' +  taskId,
-				method: 'GET'
-			})
-				.then ( function ( res ) {
-					return res.data;
-				} );
-		}
-
 		/**
 		 * Añade una tarea a una columna (flow-step) de un tablero
 		 * @param flowstepId El identificador de la columna (flow-step) donde irá la tarea
 		 * @param taskName La tarea a añadir
+		 * @param taskDescription Descripción de la tarea
 		 * @returns Una promesa con la respuesta HTTP. Si el estatus es 200 los datos de la tarea creada
          */
 		function addTask(flowstepId, taskName, taskDescription){
@@ -172,8 +124,8 @@
          */
 		function removeTask(taskId){
 			return $http({
-				url: '/api/task/' + taskId,
-				method: 'DELETE',
+				url: '/api/task/' + taskId + '/',
+				method: 'DELETE'
 			})
 				.then ( function ( res ) {
 					return res.data;

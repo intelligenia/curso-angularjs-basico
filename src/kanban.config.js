@@ -10,8 +10,6 @@
 	 * @param $httpProvider
 	 */
 	function config ( $httpProvider ) {
-        var auth = window.btoa("mario@intelligenia.com:mario");
-		$httpProvider.defaults.headers.common['Authorization'] = 'Basic ' + auth;
     }
 
 })();

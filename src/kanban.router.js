@@ -6,9 +6,7 @@
         .config(config);
 
 
-	function config ( $locationProvider, $routeProvider ) {
-		//$locationProvider.html5Mode(true);
-
+	function config ( $routeProvider ) {
 		$routeProvider
 			.when('/boards', {
 				templateUrl: 'components/boards/list.view.html',

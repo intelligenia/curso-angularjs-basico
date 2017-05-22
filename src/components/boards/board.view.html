@@ -1,32 +1,32 @@
 <h1 class="board-name"> {{vm.board.name}}</h1>
 <div class="container-fluid kanban-container">
     <div class="kanban-board" class="row">
-        <div ng-repeat="flow_step in vm.board.flow_steps" class="panel panel-primary kanban-col">
+        <div ng-repeat="flowStep in vm.board.flow_steps" class="panel panel-primary kanban-col">
             <div class="panel-heading">
-                {{flow_step.name}}
+                {{flowStep.name}}
             </div>
             <div class="panel-body">
 
                 <!-- Listado de tareas -->
-                <article ng-repeat="task in flow_step.tasks" class="kanban-task grab" draggable="true">
+                <article ng-repeat="task in flowStep.tasks" class="kanban-task grab" draggable="true">
                     <div class="kanban-label">
-                        <i class="remove fa fa-times" ng-click="vm.removeTask(task)"></i>
+                        <i class="remove fa fa-times" ng-click="vm.removeTask(flowStep, task)"></i>
                         <p> {{task.name}}</p>
                     </div>
                 </article>
 
                 <!-- Tarea nueva -->
-                <article ng-show="flow_step.isAddingTask" class="kanban-task grab">
+                <article ng-show="flowStep.isAddingTask" class="kanban-task grab">
                     <div class="kanban-label">
-                        <p contenteditable="true" ng-model="flow_step.newTaskName"></p>
+                        <p contenteditable="true" ng-model="flowStep.newTaskName"></p>
                     </div>
                 </article>
 
             </div>
             <div class="panel-footer">
-                <a ng-hide="flow_step.isAddingTask" href="javascript:void(null)" ng-click="flow_step.isAddingTask = true">Añadir tarjeta...</a>
-                <button ng-show="flow_step.isAddingTask" class="btn btn-success" ng-click="vm.addTask(flow_step)">Guardar</button>
-                <i ng-show="flow_step.isAddingTask" class="fa fa-times fa-2x" ng-click="flow_step.isAddingTask = false"></i>
+                <a ng-hide="flowStep.isAddingTask" href="javascript:void(null)" ng-click="flowStep.isAddingTask = true">Añadir tarjeta...</a>
+                <button ng-show="flowStep.isAddingTask" class="btn btn-success" ng-click="vm.addTask(flowStep)">Guardar</button>
+                <i ng-show="flowStep.isAddingTask" class="fa fa-times fa-2x" ng-click="flowStep.isAddingTask = false"></i>
             </div>
         </div>
 

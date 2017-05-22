@@ -7,6 +7,5 @@
 
     function KanbanMainController ( ) {
         var vm = this;
-
     }
 })();

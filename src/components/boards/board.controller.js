@@ -13,8 +13,9 @@
         vm.newFlowStepName = "";
 
         // Métodos
-        vm.addFlowStep = addFlowStep;
-        vm.addTask = addTask;
+        vm.addFlowStep = addFlowStep;    // añadir lista
+        vm.addTask = addTask;            // añadir tarea a lista
+        vm.removeTask = removeTask;      // eliminar tarea
 
 
         // Implementación
@@ -34,28 +35,29 @@
 
         /**
          * Añade una nueva tarea a una columna
-         * @param flow_step La columna donde añadir la nueva entrada
+         * @param flowStep La columna donde añadir la nueva entrada
          */
-        function addTask(flow_step){
-            BoardService.flow_steps.tasks.add(flow_step.id, flow_step.newTaskName, "una descripción")
+        function addTask(flowStep){
+            BoardService.flow_steps.tasks.add(flowStep.id, flowStep.newTaskName, "una descripción")
                 .then( function ( task ) {
-                    flow_step.tasks.push(task);
+                    flowStep.tasks.push(task);
 
                     //Borramos los datos de la tarea una vez añadida
-                    flow_step.newTaskName = "";
-                    flow_step.isAddingTask = false;
+                    flowStep.newTaskName = "";
+                    flowStep.isAddingTask = false;
                 });
 
         }
 
         /**
          * Elimina una tarea
+         * @param flowStep  lista
          * @param task  tarea
          */
-        function removeTask(task){
+        function removeTask(flowStep, task){
             BoardService.flow_steps.tasks.remove(task.id)
                 .then( function ( ) {
-                    flow_step.tasks.splice(flow_step.tasks.indexOf(task), 1);
+                    flowStep.tasks.splice(flowStep.tasks.indexOf(task), 1);
                 });
 
         }
